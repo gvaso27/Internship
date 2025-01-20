@@ -1,0 +1,9 @@
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/TransfersApplication.java
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/controller/CalculateOptimal.java
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/controller/model/DTO/TransferDTO.java
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/controller/model/TransfersInput.java
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/controller/model/TransfersOutput.java
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/service/ServiceClass.java
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/service/ServiceClassImpl.java
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/service/model/SelectedTransfers.java
+/home/gvaso/Desktop/ZEROBYTE/Internship/src/main/java/com/example/transfers/service/model/Transfer.java
