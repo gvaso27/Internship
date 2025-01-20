@@ -3,7 +3,7 @@
 ## Overview
 This project implements an optimal transfer selection algorithm using dynamic programming. The program finds the most cost-effective combination of transfers while respecting a maximum weight constraint.
 
-##Technologies Used
+## Technologies Used
 	•	Java: 17
 	•	Maven: 4.0.0
 	•	Spring Boot: 3.4.1
