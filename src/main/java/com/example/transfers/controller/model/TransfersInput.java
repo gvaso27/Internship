@@ -13,5 +13,6 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TransfersInput {
     int maxWeight;
-    List<TransferDTO> transfers;
+    int maxBoxWeight;
+    List<TransferDTO> availableTransfers;
 }

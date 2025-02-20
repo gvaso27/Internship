@@ -1,10 +1,12 @@
 package com.example.transfers.service;
 
+import com.example.transfers.service.model.FinalResult;
 import com.example.transfers.service.model.SelectedTransfers;
 import com.example.transfers.service.model.Transfer;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static java.lang.Math.max;
@@ -13,7 +15,33 @@ import static java.lang.Math.max;
 public class ServiceClassImpl implements ServiceClass {
 
     @Override
-    public SelectedTransfers optimalSolution(int maxWeight, List<Transfer> transfers){
+    public FinalResult optimalSolution(int maxWeight, List<Transfer> transfers, int maxBoxWeight){
+        FinalResult result = FinalResult.builder()
+                .totalCost(0)
+                .totalWeight(0)
+                .transfers(new ArrayList<>())
+                .build();
+
+        int currentW = 0;
+        while (currentW <= maxWeight){
+            currentW += maxBoxWeight;
+            SelectedTransfers currTransfer = helper (maxBoxWeight, transfers);
+            result.setTotalWeight(result.getTotalWeight() +  currTransfer.getTotalWeight());
+            result.setTotalCost(result.getTotalCost() +  currTransfer.getTotalCost());
+            result.getTransfers().add(currTransfer.getTransfers());
+        }
+
+        if(currentW % maxWeight != 0){
+            SelectedTransfers currTransfer = helper (maxWeight % maxBoxWeight, transfers);
+            result.setTotalWeight(result.getTotalWeight() +  currTransfer.getTotalWeight());
+            result.setTotalCost(result.getTotalCost() +  currTransfer.getTotalCost());
+            result.getTransfers().add(currTransfer.getTransfers());
+        }
+
+    return result;
+    }
+
+    private SelectedTransfers helper(int maxWeight, List<Transfer> transfers){
         List<Transfer> transfersList = new ArrayList<>();
         int totalWeight = 0;
         int totalCost = 0;
@@ -55,8 +83,10 @@ public class ServiceClassImpl implements ServiceClass {
                 totalWeight += currentTransfer.getWeight();
                 totalCost += currentTransfer.getCost();
                 weightLimit -= currentTransfer.getWeight();
+                selectedTransfers.getTransfers().remove(currentTransfer);
             }
         }
+
         selectedTransfers.setTotalWeight(totalWeight);
         selectedTransfers.setTotalCost(totalCost);
 
